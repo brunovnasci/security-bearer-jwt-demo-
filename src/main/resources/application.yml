@@ -1,0 +1,29 @@
+server:
+  port: 8180
+
+spring:
+  datasource:
+    url: "jdbc:mariadb://localhost:3306/demo"
+    username: "root"
+    password: "hash"
+    driver-class-name: "org.mariadb.jdbc.Driver"
+  jpa:
+    openInView: false
+    show_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+  data:
+    jpa:
+      repositories.enabled: true
+
+keycloak:
+  realm: demo
+  auth-server-url : http://localhost:8080/auth
+  ssl-required : external
+  resource : resource-test
+  credentials :
+    secret : 3da059d9-bbd6-4473-8d43-9085c775fdcb
+  use-resource-role-mappings : false
+  principal-attribute : preferred_username
+  bearer-only: true
